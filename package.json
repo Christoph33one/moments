@@ -18,7 +18,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "heroku-prebuild": "npm --openssl-legacy-provider install -g serve",
+    "heroku-prebuild": "npm install -g serve",
     "dev": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
