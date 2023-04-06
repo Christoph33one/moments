@@ -1,3 +1,8 @@
 import os
 
-print(os.getenv("test"))
+import os
+
+if os.path.exists("env.py"):
+    import env
+
+print(os.getenv("envpy_moments"))
