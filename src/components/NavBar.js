@@ -20,6 +20,7 @@ const NavBar = () => {
               exact
               className={styles.NavLink}
               activeClassName={styles.Active}
+              /*use (to) as a href to links*/
               to="/"
             >
               <i className="fas fa-home"></i>Home
@@ -27,11 +28,13 @@ const NavBar = () => {
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
+              /*use (to) as a href to links*/
               to="/signin"
             >
               <i className="fas fa-sign-in-alt"></i>Sign in
             </NavLink>
             <NavLink
+            /*use (to) as a href to links*/
               to="/signup"
               className={styles.NavLink}
               activeClassName={styles.Active}
@@ -44,5 +47,6 @@ const NavBar = () => {
     </Navbar>
   );
 };
+
 
 export default NavBar;
