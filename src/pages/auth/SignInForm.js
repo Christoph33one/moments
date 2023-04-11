@@ -23,18 +23,16 @@ function SignInForm() {
     username: "",
     password: "",
   });
-   /**Deconstructing */
   const { username, password } = signInData;
-  /**Display errors  */
+
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
-
-  /**Stops page from refreshing after sumbit! */
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      const { data } = await axios.post("/dj-rest-auth/login", signInData);
       setCurrentUser(data.user);
       history.push("/");
     } catch (err) {
@@ -88,14 +86,17 @@ function SignInForm() {
                 {message}
               </Alert>
             ))}
-            <Button 
-                className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
-                type="submit">
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              type="submit"
+            >
               Sign in
             </Button>
-            {errors.non_field_errors?.map((message, idx) => 
-                <Alert variant="warning" className="mt-3" key={idx}>{message} </Alert>
-            )}
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert key={idx} variant="warning" className="mt-3">
+                {message}
+              </Alert>
+            ))}
           </Form>
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>

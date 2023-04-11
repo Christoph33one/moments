@@ -16,17 +16,14 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 
-/**useSatate to set values for the handleClick (onClick) function */
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
     password2: "",
   });
-  /**Deconstructing */
   const { username, password1, password2 } = signUpData;
 
-  /**Display errors  */
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
@@ -38,11 +35,10 @@ const SignUpForm = () => {
     });
   };
 
-    /**Stops page from refreshing after sumbit! */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
+      await axios.post("/dj-rest-auth/registration", signUpData);
       history.push("/signin");
     } catch (err) {
       setErrors(err.response?.data);
@@ -68,7 +64,7 @@ const SignUpForm = () => {
               />
             </Form.Group>
             {errors.username?.map((message, idx) => (
-              <Alert variant="Warning" key={idx}>
+              <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
             ))}
