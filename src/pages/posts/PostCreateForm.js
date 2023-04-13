@@ -78,13 +78,13 @@ function PostCreateForm() {
           name="title"
           value={title}
           onChange={handleChange}
-        />
+      />
       </Form.Group>
-      {errors?.title?.map((message, idx) => {
+      {errors?.title?.map((message, idx) => (
         <Alert variant="waring" key={idx}>
           {message}
         </Alert>
-      })}
+      ))}
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -94,13 +94,13 @@ function PostCreateForm() {
           name="content"
           value={content}
           onChange={handleChange}
-        />
+      />
       </Form.Group>
-      {errors?.content?.map((message, idx) => {
+      {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      })}
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -153,7 +153,7 @@ function PostCreateForm() {
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
-              />
+            />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
